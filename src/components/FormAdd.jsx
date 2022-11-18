@@ -18,7 +18,9 @@ const FormAdd = () => {
   const handleChange = (e) => {
     // eslint-disable-next-line no-const-assign
     Jornada = e.target.id;
-    console.log(Jornada);
+    document.getElementById("Mañana").setAttribute("disabled","true")
+   
+   
   };
 
   const handleButton = (e) => {
@@ -31,10 +33,11 @@ const FormAdd = () => {
     });
 
     dispatch(CrearRegistro(name, Jornada));
-
-    if(data.Jornada = "Tarde"){
-
+    if(Jornada === "Tarde"){
+      document.getElementById("Mañana").setAttribute("disabled","false")
     }
+
+   
   };
 
   console.log("soy el dato del form", data);
