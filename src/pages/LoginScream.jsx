@@ -22,7 +22,7 @@ const LoginScream = () => {
       [e.target.name]: value,
     });
   };
-  console.log(setData)
+ 
   const handleEmailLogin = (e) => {
     e.preventDefault();
 

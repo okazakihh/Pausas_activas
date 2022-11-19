@@ -21,9 +21,9 @@ const AppRouters = () => {
         dispatch(login(user.uid, user.displayName));
         setLog(true);
 
-       // const nominaData = await loadData(user.uid);
+        const nominaData = await loadData(user.uid);
 
-      //  dispatch(leerRegistros(nominaData))
+        dispatch(leerRegistros(nominaData))
         
       } else {
         setLog(false);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { CrearRegistro } from "../actions/nomina";
+import Swal from "sweetalert2";
 
 const FormAdd = () => {
   const dispatch = useDispatch();
@@ -18,9 +19,7 @@ const FormAdd = () => {
   const handleChange = (e) => {
     // eslint-disable-next-line no-const-assign
     Jornada = e.target.id;
-    document.getElementById("Mañana").setAttribute("disabled","true")
-   
-   
+    document.getElementById("Mañana").setAttribute("disabled", "true");
   };
 
   const handleButton = (e) => {
@@ -32,12 +31,26 @@ const FormAdd = () => {
       Jornada: Jornada,
     });
 
-    dispatch(CrearRegistro(name, Jornada));
-    if(Jornada === "Tarde"){
-      document.getElementById("Mañana").setAttribute("disabled","false")
-    }
+    try {
+      dispatch(CrearRegistro(name, Jornada));
 
-   
+      Swal.fire({
+        title: "Completado!",
+        text: "Accion completada correctamente",
+        icon: "sisses",
+        confirmButtonText: "Ok",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "No se pudo cpmplatar la accion!",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    }
+    if (Jornada === "Tarde") {
+      document.getElementById("Mañana").setAttribute("disabled", "false");
+    }
   };
 
   console.log("soy el dato del form", data);
@@ -101,7 +114,6 @@ const FormAdd = () => {
       </div>
 
       <br />
-      
     </div>
   );
 };

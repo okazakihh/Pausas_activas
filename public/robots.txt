@@ -1,3 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
+#git remote add origin https://github.com/okazakihh/pausas_activas.git
 User-agent: *
 Disallow:

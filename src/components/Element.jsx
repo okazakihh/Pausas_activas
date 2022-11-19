@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { borrarRegistro } from "../actions/nomina";
+import { borrarRegistro} from "../actions/nomina";
 
 const Element = ({ data }) => {
-  const { id, Fecha, Nombres, Lugar, Tipo, Telefono, Pago } = data;
+  const { id, Fecha, Nombres, Jornada } = data;
  
   const dispatch = useDispatch();
   const [viewInfo, setViewInfo] = useState(false);
-
+ 
   let fechaFormato;
-
+console.log("estoy en el element")
   if (Fecha.seconds) {
     const date = Fecha.toDate();
     fechaFormato = date.toLocaleDateString();
@@ -29,15 +29,13 @@ const Element = ({ data }) => {
   const handleinfo = () => {
     setViewInfo(!viewInfo);
   };
+ 
 
   return (
     <>
-    
+     
       <div className="row">
         <td>{Nombres }</td>
-        <td> </td>
-        <td></td>
-        <td>{Lugar }</td>
         <td> </td>
         <td></td>
         <td>{fechaFormato }</td>
@@ -65,14 +63,7 @@ const Element = ({ data }) => {
                   <br />
                   Nombres: {Nombres}
                   <br />
-                  Lugar: {Lugar}
-                  <br />
-                  Tipo: {Tipo}
-                  <br />
-                  Telefono: {Telefono}
-                  <br />
-                  Pago : ${Pago}
-                  <br />
+                  Jornada: {Jornada}
                   <br />
                   <button
                     onClick={handleDelete}
