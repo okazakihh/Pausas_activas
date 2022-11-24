@@ -7,31 +7,44 @@ import Swal from "sweetalert2";
 const FormAdd = () => {
   const dispatch = useDispatch();
   let Jornada = "";
+
+  var today = new Date();
+    
+  // obtener la fecha y la hora
+  var now = today.toLocaleTimeString('en-US');
+  var valetime = now.substring(9)
+  var valetime2 = now.substring(8)
+  console.log(valetime2);
+  
+  if(valetime === "PM" || valetime2 ==="PM" ){
+    Jornada = "Tarde"
+  }
+  if(valetime === "AM" || valetime2 ==="AM" ){
+    Jornada = "Mañana"
+  }
   const [data, setData] = useState({});
+
   const name = useSelector((state) => state.auth.displayName);
   let fecha = new Date().toLocaleDateString("es-es", {
     weekday: "long",
     year: "numeric",
     month: "long",
     day: "numeric",
+    Hours: "long",
   });
 
-  const handleChange = (e) => {
-    // eslint-disable-next-line no-const-assign
-    Jornada = e.target.id;
-    document.getElementById("Mañana").setAttribute("disabled", "true");
-  };
-
   const handleButton = (e) => {
+    try {
     console.log(Jornada);
 
+ 
+    console.log(Jornada)
+    
     setData({
       ...data,
       Name: name,
       Jornada: Jornada,
     });
-
-    try {
       dispatch(CrearRegistro(name, Jornada));
 
       Swal.fire({
@@ -48,58 +61,24 @@ const FormAdd = () => {
         confirmButtonText: "Cool",
       });
     }
-    if (Jornada === "Tarde") {
-      document.getElementById("Mañana").setAttribute("disabled", "false");
-    }
+    
   };
 
   console.log("soy el dato del form", data);
   return (
     <div className="center">
-      <h6 className="center">{fecha}</h6>
+      <h5 className="center">{fecha}</h5>
 
-      <hr />
-      <br />
-      <p className="center">
-        Las pausas activas sirven para recuperar energía, mejorar el desempeño y
-        eficiencia en el trabajo, y además previenen enfermedades ocupacionales
-        y accidentes laborales.{" "}
-      </p>
+      
+      
       <br />
       <br />
       <hr />
       <h5>JORNADA</h5>
       <div className="row">
         <div className="col s12"></div>
-        <div className="col s6">
-          <h5>MAÑANA</h5>
-          <p>
-            <label>
-              <input
-                name="group1"
-                type="radio"
-                id="Mañana"
-                onClick={handleChange}
-              />
-              <span></span>
-            </label>
-          </p>
-        </div>
-        <div className="col s6">
-          <h5>TARDE</h5>
-
-          <p>
-            <label>
-              <input
-                name="send"
-                id="Tarde"
-                type="radio"
-                onClick={handleChange}
-              />
-              <span></span>
-            </label>
-          </p>
-        </div>
+       
+        
       </div>
       <div>
         <button
@@ -112,7 +91,13 @@ const FormAdd = () => {
           <i className="material-icons right">send</i>
         </button>
       </div>
-
+      <br />
+      <hr />
+      <p className="center">
+        Las pausas activas sirven para recuperar energía, mejorar el desempeño y
+        eficiencia en el trabajo, y además previenen enfermedades ocupacionales
+        y accidentes laborales.{" "}
+      </p>
       <br />
     </div>
   );

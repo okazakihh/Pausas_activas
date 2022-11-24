@@ -35,9 +35,6 @@ console.log("estoy en el element")
     <>
      
       <div className="row">
-        <td>{Nombres }</td>
-        <td> </td>
-        <td></td>
         <td>{fechaFormato }</td>
         <td> </td>
         <td></td>
