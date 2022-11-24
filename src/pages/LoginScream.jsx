@@ -46,7 +46,7 @@ const LoginScream = () => {
   return (
     <div> 
     <div className="container  ">
-      <h3 className="tittle">Login page</h3>
+      <h3 className="tittle">Iniciar sesión</h3>
       <hr />
 
       <div className="row">
@@ -62,7 +62,7 @@ const LoginScream = () => {
                 value={email}
                 name="email"
               />
-              <label htmlFor="icon_prefix1">Email</label>
+              <label htmlFor="icon_prefix1">Correo</label>
             </div>
             <div className="input-field col s11">
               <i className="material-icons prefix">vpn_key</i>
@@ -74,15 +74,15 @@ const LoginScream = () => {
                 value={password}
                 name="password"
               />
-              <label htmlFor="icon_prefix2">Pass</label>
+              <label htmlFor="icon_prefix2">Contraseña</label>
             </div>
           </div>
           <div className="row col s7">
-            <button className="waves-effect waves-light btn ">Enter</button>
+            <button className="waves-effect waves-light btn ">Ingresar</button>
             <hr className="row" />
             <div className=" row col">
               <Link className="row " to="/auth/register">
-                Register in the platform
+                Registrarse
               </Link>
               <GoogleButton className="row" onClick={handleGoogleLogin} />
             </div>

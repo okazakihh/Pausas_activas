@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch }  from "react-redux";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import {register} from '../actions/auth';
 const RegisterScream = () => {
 
@@ -25,29 +26,59 @@ const dispatch = useDispatch()
 
   const handleRegister = (e) => {
     e.preventDefault();
-    
+    var validate = 0;
     if (email.trim() === "" ) {
-      alert("Debe ingresar un email");
       
+      Swal.fire({
+        title: "Error!",
+        text: "Debe ingresar un email!",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+      
+      validate =+ 1;
     }
 
     if (username.trim().length < 3 || username.trim()==="") {
-      alert("El usuario ingresado es incorrecto.\nRecuerde que debe tener minimo tres caracteres \ny el campo no puede estar vacio ");
+      
+      Swal.fire({
+        title: "Error!",
+        text: "El usuario ingresado es incorrecto.\nRecuerde que debe tener minimo tres caracteres \ny el campo no puede estar vacio ",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+      validate =+ 1;
     }
 
     if (password.trim().length < 6) {
-      alert("La contraseña debe tener al menos 6 caracteres");
-    } else {
-      if (password.trim() !== password2.trim()) {
-        alert("la contraseña no coicide");
-      }
+      
+      Swal.fire({
+        title: "Error!",
+        text: "La contraseña debe tener al menos 6 caracteres",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+      validate =+ 1;
     }
+      if (password.trim() !== password2.trim()) {
+        
+        Swal.fire({
+          title: "Error!",
+          text: "la contraseña no coicide",
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
+        validate =+ 1;
+      }
+      if(validate === 0) {
+        dispatch(register(email, password, username));
+       }
+    
 
-    dispatch(register(email, password, username));
   };
   return (
     <div className="container">
-      <h3 className="tittle">Register scream</h3>
+      <h3 className="tittle">Registrarse</h3>
 
       <div className="row">
         <form className="col s12" onSubmit={handleRegister}>
@@ -62,7 +93,7 @@ const dispatch = useDispatch()
                 onChange={handleChange}
                 value={email}
               />
-              <label htmlFor="icon_prefix1">Email</label>
+              <label htmlFor="icon_prefix1">Correo</label>
             </div>
             <div className="input-field col s12">
               <i className="material-icons prefix">person</i>
@@ -74,7 +105,7 @@ const dispatch = useDispatch()
                 name="username"
                 type="text"
               />
-              <label htmlFor="icon_prefix2">Username</label>
+              <label htmlFor="icon_prefix2">Usuario</label>
             </div>
             <div className="input-field col s11">
               <i className="material-icons prefix">vpn_key</i>
@@ -86,7 +117,7 @@ const dispatch = useDispatch()
                 onChange={handleChange}
                 value={password}
               />
-              <label htmlFor="icon_prefix3">Pass</label>
+              <label htmlFor="icon_prefix3">contraseña</label>
             </div>
             <div className="input-field col s11">
               <i className="material-icons prefix">done</i>
@@ -98,16 +129,16 @@ const dispatch = useDispatch()
                 onChange={handleChange}
                 value={password2}
               />
-              <label htmlFor="icon_prefix4">Confirm pass</label>
+              <label htmlFor="icon_prefix4">Confirmar contraseña</label>
             </div>
           </div>
 
           <div className="row col s7">
-            <button className="waves-effect waves-light btn " type="submit">Send</button>
+            <button className="waves-effect waves-light btn " type="submit">Enviar</button>
             <hr className="row" />
             <div className=" row col">
               <Link className="row " to="/auth/login">
-                Login into acount
+                Iniciar sesión 
               </Link>
             </div>
           </div>
