@@ -4,7 +4,7 @@ import "firebase/compat/auth"
 
 
 //***conexion a entorno de pruebas */
-/*const firebaseConfig = {
+const firebaseConfig = {
   apiKey: "AIzaSyCzj4SI-HeaBTLzSSSi8TkOgk4XjIEmXVE",
   authDomain: "pausas-activa-fb21d.firebaseapp.com",
   projectId: "pausas-activa-fb21d",
@@ -12,11 +12,11 @@ import "firebase/compat/auth"
   messagingSenderId: "586665140277",
   appId: "1:586665140277:web:c2c1db6344a002b4cfd17c",
   measurementId: "G-M5GZXRD8VF"
-};*/
+};
 
 //**conexion a entorno de produccion */
 
-const firebaseConfig = {
+/*const firebaseConfig = {
   apiKey: "AIzaSyC31cek25nwEHvRs6zqIeI_lxHxEG-znb4",
   authDomain: "pausasactivasprd.firebaseapp.com",
   projectId: "pausasactivasprd",
@@ -24,7 +24,7 @@ const firebaseConfig = {
   messagingSenderId: "410164065362",
   appId: "1:410164065362:web:2ed74881b777c2c3709b8b",
   measurementId: "G-VF7X9STGSE"
-};
+};*/
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
