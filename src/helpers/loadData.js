@@ -1,18 +1,12 @@
 import { db } from "../firebase/config-firebase";
-import axios from "axios";
 
-export const loadDataa =(uid) => axios({
-  method: 'get',
-  url: `${uid}/Pausas/pausas`,
-  responseType: 'stream'
-})
-  .then(function (response) {
-    console.log("vengo desde axios",response)
-  });
+
+
 export const loadData = async (uid) => {
   const response = await db.collection(`${uid}/Pausas/pausas`).get();
 
   const data = [];
+ 
   
   response.forEach((pausas) => {
     const pausasData = pausas.data();
@@ -23,5 +17,9 @@ export const loadData = async (uid) => {
     });
   });
   console.log("soy la perdida",data);
+  
+
   return data;
 };
+
+
