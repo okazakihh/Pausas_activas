@@ -11,12 +11,15 @@ const Header = () => {
     <div className="nav-wrapper" style={{
         "backgroundColor":"#1565c0"
     }}>
-   <span style={{"margin":"2rem"}}>{name}</span>
+
+     
+   <b style={{"margin":"2rem", "font-fontWeight":"400", "fontSize":"1.5rem"}}>{name}</b>
     <Navbar />
     
     
     </div>
   </nav>
+  
     </div>
   )
 }

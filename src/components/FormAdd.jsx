@@ -109,29 +109,30 @@ const FormAdd = () => {
 
   return (
     <div className="center">
+    
       <h5 className="center">{fecha}</h5>
       <br />
 
-      <hr />
+  
 
-      <div class="row" >
-        <div class="col s12 ">
-          <div class="card" style={{didplay:"grid"}}>
-            <div class="card-image" >
+      <div className="row" >
+        <div className="col s12 ">
+          <div className="card" style={{didplay:"grid"}}>
+            <div className="card-image" style={{didplay:"grid"}} >
               <ReactPlayer
               
                 url="https://www.youtube.com/watch?v=blnNeQbaasw"
                 className="react-player center"
                 playing="false"
                 width="100%"
-                height="100%"
+               
                 controls="false"
               />
             </div>
           </div>
         </div>
       </div>
-      <hr />
+  
 
       <br />
 
