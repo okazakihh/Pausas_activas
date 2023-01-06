@@ -22,7 +22,8 @@ const FormAdd = () => {
     day: "numeric",
     Hours: "long",
   });
-
+  const capitalizedText = fecha.charAt(0).toUpperCase() + fecha.slice(1);
+  
   const filtrar = (terminoBusqueda) => {
     var resultadosBusqueda = datos.filter((elemento) => {
       if (
@@ -92,7 +93,7 @@ const FormAdd = () => {
 
         Swal.fire({
           title: "Completado!",
-          text: "Accion completada correctamente",
+          text: "Acción completada correctamente",
           icon: "susses",
           confirmButtonText: "Ok",
         });
@@ -100,17 +101,17 @@ const FormAdd = () => {
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: "No se pudo cpmplatar la accion!",
+        text: "No se pudo complatar la acción!",
         icon: "error",
         confirmButtonText: "Cool",
       });
     }
   };
-
+ 
   return (
     <div className="center">
     
-      <h5 className="center">{fecha}</h5>
+      <h5 className="center">{capitalizedText}</h5>
       <br />
 
   
@@ -123,10 +124,10 @@ const FormAdd = () => {
               
                 url="https://www.youtube.com/watch?v=blnNeQbaasw"
                 className="react-player center"
-                playing="false"
+               
                 width="100%"
                
-                controls="false"
+                controls="true"
               />
             </div>
           </div>
@@ -158,7 +159,9 @@ const FormAdd = () => {
           Las pausas activas sirven para recuperar energía, mejorar el desempeño
           y eficiencia en el trabajo, además previenen enfermedades
           ocupacionales y accidentes laborales.{" "}
+          
         </p>
+       
         <br />
       </div>
       <br />
