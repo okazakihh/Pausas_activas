@@ -2,13 +2,15 @@ import { types } from "../types/Types";
 import { firebase, googleAuthProvider } from "../firebase/config-firebase";
 
 export const googlelogin = () => {
+  var urlFoto="";
   return (dispatch) => {
     firebase
       .auth()
       .signInWithPopup(googleAuthProvider)
-      .then(({ user }) => {
-        dispatch(login(user.uid, user.displayName));
-      });
+     .then(({ user }) => {
+   
+    dispatch(login(user.uid, user.displayName, user.photoURL));
+});
   };
 };
 

@@ -32,7 +32,7 @@ const Footer = () => {
         <div style={{"display": "flex",
               "justifyContent": "center",
               "alignItems": "center"}}>
-        <span className="blue-text text-darken-2" ><br/>© 2023 Shareppy –  Todos los Derechos Reservados.s  V 1.0.0 </span>
+        <span className="blue-text text-darken-2" ><br/>© 2023 Shareppy –  Todos los Derechos Reservados.s  V 1.0.1 </span>
         <br/>
         <br/>
         </div>

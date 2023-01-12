@@ -1,14 +1,15 @@
 import { db } from "../firebase/config-firebase";
 import { types } from "../types/Types";
 
-export const CrearRegistro = (Nombres, Jornada) => {
+export const CrearRegistro = (Nombres, Jornada, Mes) => {
   return async (dispatch, getState) => {
     const { uid } = getState().auth;
 
     const datos = {
       Fecha: new Date().toLocaleDateString(),
       Nombres,
-      Jornada
+      Jornada,
+      Mes
     };
     console.log("soy los datos", datos);
     const referencia = await db.collection(`${uid}/Pausas/pausas`).add(datos);

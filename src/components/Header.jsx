@@ -1,10 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
 
 
 const Header = () => {
   const name = useSelector((state) => state.auth.displayName);
+  const photo = useSelector((state) => state.auth.photoURL);
+  console.log("soy la fotooo", name )
   return (
     <div>
       <nav>

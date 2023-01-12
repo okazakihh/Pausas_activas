@@ -45,9 +45,49 @@ const FormAdd = () => {
     valueJornada = y.Jornada;
   }
 
-  console.log(valueFecha);
+ // console.log(valueFecha);
+var month = today.toString().split("/")[1] 
+var mes =""
+switch (month) {
+  case "1":
+    mes = "Enero"
+    break
+    case "2":
+    mes = "Febrero"
+    break
+    case "3":
+    mes = "Marzo"
+    break
+    case "4":
+    mes = "Abril"
+    break
+    case "5":
+    mes = "Mayo"
+    break
+    case "6":
+    mes = "Junio"
+    break
+    case "7":
+    mes = "Julio"
+    break
+    case "8":
+    mes = "Agosto"
+    break
+    case "9":
+    mes = "Septiembre"
+    break
+    case "10":
+    mes = "Octubre"
+    break
+    case "11":
+    mes = "Noviembre"
+    break
+    case "12":
+    mes = "Diciembre"
+    break
+}
 
-  console.log(valueJornada);
+  console.log("soy el mes",mes);
 
  const [daatos, setDaatos] = useState({});
   let jornada = "";
@@ -59,6 +99,7 @@ const FormAdd = () => {
   var valetime2 = now.substring(8);
   const dispatch = useDispatch();
 
+ // console.log("today...", now.substring(5));
   const name = useSelector((state) => state.auth.displayName);
   
   if (valetime === "PM" || valetime2 === "PM") {
@@ -88,8 +129,9 @@ const FormAdd = () => {
           ...datos,
           Name: name,
           Jornada: jornada,
-        });
-        dispatch(CrearRegistro(name, jornada));
+          Mes: mes      
+          });
+        dispatch(CrearRegistro(name, jornada, mes));
 
         Swal.fire({
           title: "Completado!",
@@ -138,7 +180,7 @@ const FormAdd = () => {
       <br />
 
       <div>
-        <h5>JORNADA</h5>
+        <h5>JORNADA DE LA {jornada.toLocaleUpperCase()}</h5>
         <div className="row">
           <div className="col s12"></div>
         </div>
